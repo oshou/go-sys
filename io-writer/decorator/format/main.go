@@ -1,7 +1,9 @@
 package main
 
 import (
+	"encoding/json"
 	"net/http"
+	"os"
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
@@ -10,10 +12,12 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	source := map[string]string{
 		"Hello": "World",
 	}
+
+	encoder := json.NewEncoder(os.Stdout)
+	encoder.Encode(source)
 }
 
 func main() {
-	http.HandlerFunc("/")
-	http.HandlerFunc("/", handler)
+	http.HandleFunc("/", handler)
 	http.ListenAndServe(":8080", nil)
 }

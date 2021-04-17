@@ -8,5 +8,5 @@ func main() {
 		panic(err)
 	}
 	file.Write([]byte("os.File example\n"))
-	file.Close()
+	defer file.Close()
 }

@@ -1,1 +1,0 @@
-string is aaa, integer is 12, float is 3.500000

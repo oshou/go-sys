@@ -12,7 +12,5 @@ func main() {
 	}
 
 	writer := io.MultiWriter(file, os.Stdout)
-	if _, err := io.WriteString(writer, "io.MultiWriter example\n"); err != nil {
-		panic(err)
-	}
+	io.WriteString(writer, "io.MultiWriter example.\n")
 }
